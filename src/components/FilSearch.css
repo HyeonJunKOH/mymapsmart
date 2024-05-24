@@ -1,0 +1,45 @@
+.FilSearch_wrapper {
+    display: flex;
+    padding-bottom: 100px;
+}
+
+.Filter {
+    width: 25%;
+}
+
+.Filter_select {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.Filter_select>option {
+    font-size: 20px;
+}
+
+.Search {
+    width: 75%;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.Search_input {
+    width: 50%;
+    height: 26px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.Search_img {
+    position: absolute;
+    width: 17px;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+}
