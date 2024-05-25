@@ -15,7 +15,30 @@
     font-size: 35px;
     justify-content: center;
 }
-
+.Header .header_title:hover{
+    cursor: pointer;
+    color: coral;
+}
+.Header .header_title:hover .header_tooltip{
+    display: flex;
+    opacity: 0.8;
+}
+.Header .header_tooltip{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: #ecf0f1;
+    border-radius: 5px;
+    color: black;
+    text-align: center;
+    font-size: 27px;
+    width: 500px;
+    display: none;
+    top:70px;
+}
+.Header .header_tooltip .tooltip1, .tooltip2, .tooltip3{
+    margin: 5px 0;
+}
 .Header .header_left {
     width: 25%;
     font-size: 25px;
