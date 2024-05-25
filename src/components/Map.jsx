@@ -26,15 +26,19 @@ function Map(){
                 // 결과값으로 받은 위치를 마커로 표시합니다
                 var marker = new kakao.maps.Marker({
                     map: map,
-                    position: coords
+                    position: coords,
+                    clickable:true
                 });
 
                 // 인포윈도우로 장소에 대한 설명을 표시합니다
                 var infowindow = new kakao.maps.InfoWindow({
-                    content: '<div style="width:150px;text-align:center;padding:6px 0;">우리 집</div>'
+                    content: '<div style="width:150px;text-align:center;padding:6px 0;">우리 집</div>',
+                    removable:true
                 });
-                infowindow.open(map, marker);
-
+                // 마커에 클릭 이벤트 설정
+                kakao.maps.event.adListener(marker,'click',function(){
+                    infowindow.open(map, marker);
+                })
                 // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
                 map.setCenter(coords);
             } 
