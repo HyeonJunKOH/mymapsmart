@@ -30,13 +30,13 @@ function Map(){
                     clickable:true
                 });
 
-                // 인포윈도우로 장소에 대한 설명을 표시합니다
-                var infowindow = new kakao.maps.InfoWindow({
-                    content: '<div style="width:150px;text-align:center;padding:6px 0;">우리 집</div>',
-                    removable:true
-                });
                 // 마커에 클릭 이벤트 설정
                 kakao.maps.event.adListener(marker,'click',function(){
+                    // 인포윈도우로 장소에 대한 설명을 표시합니다
+                    var infowindow = new kakao.maps.InfoWindow({
+                        content: '<div style="width:150px;text-align:center;padding:6px 0;">우리 집</div>',
+                        removable: true
+                    });
                     infowindow.open(map, marker);
                 })
                 // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
