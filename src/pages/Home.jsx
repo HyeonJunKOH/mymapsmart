@@ -1,6 +1,4 @@
-import FilSearch from "../components/FilSearch";
 import Header from "../components/Header";
-import Map from "../components/Map";
 import Menu from "../components/Menu";
 
 
@@ -13,8 +11,6 @@ function Home(){
                 rightChild={"⭐"}
             />
             <Menu/>
-            <FilSearch/>
-            <Map/>
         </>
     )
 }
