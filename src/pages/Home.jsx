@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import Main from "../components/Main";
-import Menu from "../components/Menu";
 
 
 function Home(){
@@ -11,7 +10,6 @@ function Home(){
                 leftChild={"🏠"}
                 rightChild={"⭐"}
             />
-            <Menu/>
             <Main/>
         </>
     )

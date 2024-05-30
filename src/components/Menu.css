@@ -6,54 +6,54 @@
     line-height: 1.5;
 }
 
-.menu_tour {
+.menu_wrapper .menu_tour{
     width: 25%;
     text-align: center;
-    border: 1px solid none;
+    border: none;
     border-radius: 5px;
     background-color: #f3a683;
 }
 
-.menu_tour:hover {
+.menu_wrapper .menu_tour:hover {
     color: white;
     cursor: pointer;
 }
 
-.menu_food {
+.menu_wrapper .menu_food {
     width: 25%;
     text-align: center;
-    border: 1px solid none;
+    border: none;
     border-radius: 5px;
     background-color: #778beb;
 }
 
-.menu_food:hover {
+.menu_wrapper .menu_food:hover {
     color: white;
     cursor: pointer;
 }
 
-.menu_hotel {
+.menu_wrapper .menu_hotel {
     width: 25%;
     text-align: center;
-    border: 1px solid none;
+    border: none;
     border-radius: 5px;
     background-color: #63cdda;
 }
 
-.menu_hotel:hover {
+.menu_wrapper .menu_hotel:hover {
     color: white;
     cursor: pointer;
 }
 
-.menu_shoping {
+.menu_wrapper .menu_shp {
     width: 25%;
     text-align: center;
-    border: 1px solid none;
+    border: none;
     border-radius: 5px;
     background-color: #f8a5c2;
 }
 
-.menu_shoping:hover {
+.menu_wrapper .menu_shp:hover {
     color: white;
     cursor: pointer;
 }

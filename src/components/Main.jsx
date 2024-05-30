@@ -1,8 +1,11 @@
 import { useEffect } from "react";
-import "./Main.css"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import "./Main.css"
+import main_tourImage from "../assets/main_tour.jpg"
+import main_hotelImage from "../assets/main_hotel.jpeg"
+import main_shpImage from "../assets/main_shp.png";
+import main_foodImage from "../assets/main_food.jpg";
 
 
 
@@ -16,17 +19,51 @@ function Main(){
             <div className="main_title1">지금 바로! 원하는 장소를 담아보세요!</div>
             <div className="main_title2">나만의 Maps! Mart~</div>
             <div className="main_title3">음식점, 명소, 쇼핑, 숙박까지! 대전의 모든 핫플레이스를 만나보세요. 장소를 골라 나만의 장바구니를 만들고 공유할 수 있습니다.</div>
-            <Card id="main_card">
-                <Card.Img/>
+            <div className="main_menu">
+            <Card className="main_card" id="main_tour">
+                <Card.Img src={main_tourImage} />
                 <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
+                    <Card.Title>관광지</Card.Title>
+                    <Card.Text>
+                        대전 전역에 멋지고 즐거운 관광지를 확인 할 수 있습니다.
+                    </Card.Text>
+                    <Button className="main_button">관광지 바로가기</Button>
+                </Card.Body>
+            </Card>
+            <Card className="main_card" id="main_food">
+                <Card.Img src={main_foodImage}/>
+                <Card.Body>
+                    <Card.Title>음식점</Card.Title>
                     <Card.Text>
                         Some quick example text to build on the card title and make up the
                         bulk of the cards content.
                     </Card.Text>
-                    <Button id="variant">Go somewhere</Button>
+                    <Button className="main_button">음식점 바로가기</Button>
                 </Card.Body>
             </Card>
+                <Card className="main_card" id="main_hotel">
+                    <Card.Img src={main_hotelImage}/>
+                    <Card.Body>
+                        <Card.Title>숙박시설</Card.Title>
+                        <Card.Text>
+                            Some quick example text to build on the card title and make up the
+                            bulk of the cards content.
+                        </Card.Text>
+                        <Button className="main_button">숙박시설 바로가기</Button>
+                    </Card.Body>
+                </Card>
+                <Card className="main_card" id="main_shp">
+                    <Card.Img src={main_shpImage}/>
+                    <Card.Body>
+                        <Card.Title>쇼핑몰</Card.Title>
+                        <Card.Text>
+                            Some quick example text to build on the card title and make up the
+                            bulk of the cards content.
+                        </Card.Text>
+                        <Button className="main_button">쇼핑몰 바로가기</Button>
+                    </Card.Body>
+                </Card>
+            </div>
         </div>
     )
 }

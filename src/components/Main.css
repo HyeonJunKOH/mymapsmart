@@ -5,7 +5,7 @@
 }
 .main_title1{
     text-align: center;
-    margin-top: 20px;
+    margin-top: 80px;
     font-size: 25px;
 }
 .main_title2{
@@ -17,9 +17,28 @@
     font-size: 18px;
     text-align: center;
 }
-.main_card{
-    width: 18rem;
+
+.main_menu {
+    display: flex;
+    margin-top: 40px;
 }
-.main_card .variant{
-    color: white;
+
+/* 카드  */
+.main_wrapper .main_card{
+    width: 18rem;
+    margin-top: 40px;
+    height: 25rem;
+}
+
+#main_tour{
+    color: #f3a683;
+}
+#main_food{
+    color: #778beb;
+}
+#main_hotel{
+    color:#63cdda;
+}
+#main_shp{
+    color: #f8a5c2;
 }

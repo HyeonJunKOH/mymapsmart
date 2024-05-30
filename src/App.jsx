@@ -7,28 +7,18 @@ import NotFound from './pages/NotFound'
 import { useEffect } from 'react'
 import axios from 'axios'
 import {TourUrl, ShpUrl, RestUrl, RomUrl} from './api'
-import React from 'react'
 
 
-
-// API 응답 타입 정의
-interface ApiResponse{
-  response: {
-    body:{
-      items:any[]
-    }
-  };
-}
 
 function App() {
   // 문화관광지 api 로컬 스토리지 저장
   useEffect(()=>{
     const fetchData = async ()=>{
       try{
-        const response1 = await axios.get<ApiResponse>(TourUrl);
-        const response2 = await axios.get<ApiResponse>(ShpUrl);
-        const response3 = await axios.get<ApiResponse>(RestUrl);
-        const response4 = await axios.get<ApiResponse>(RomUrl);
+        const response1 = await axios.get(TourUrl);
+        const response2 = await axios.get(ShpUrl);
+        const response3 = await axios.get(RestUrl);
+        const response4 = await axios.get(RomUrl);
 
         const mergeData = response1.data.response.body.items.concat(
           response2.data.response.body.items,
