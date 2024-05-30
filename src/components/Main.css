@@ -17,3 +17,9 @@
     font-size: 18px;
     text-align: center;
 }
+.main_card{
+    width: 18rem;
+}
+.main_card .variant{
+    color: white;
+}
