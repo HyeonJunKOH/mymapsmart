@@ -21,44 +21,41 @@ function Main(){
             <div className="main_title3">음식점, 명소, 쇼핑, 숙박까지! 대전의 모든 핫플레이스를 만나보세요. 장소를 골라 나만의 장바구니를 만들고 공유할 수 있습니다.</div>
             <div className="main_menu">
             <Card className="main_card" id="main_tour">
-                <Card.Img src={main_tourImage} />
+                <Card.Img className="main_img" src={main_tourImage} />
                 <Card.Body>
                     <Card.Title>관광지</Card.Title>
-                    <Card.Text>
+                    <Card.Text className="main_text">
                         대전 전역에 멋지고 즐거운 관광지를 확인 할 수 있습니다.
                     </Card.Text>
                     <Button className="main_button">관광지 바로가기</Button>
                 </Card.Body>
             </Card>
             <Card className="main_card" id="main_food">
-                <Card.Img src={main_foodImage}/>
+                <Card.Img className="main_img" src={main_foodImage}/>
                 <Card.Body>
                     <Card.Title>음식점</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the cards content.
+                    <Card.Text className="main_text">
+                        대전 전역에 맛있는 맛집을 확인 할 수 있습니다.
                     </Card.Text>
                     <Button className="main_button">음식점 바로가기</Button>
                 </Card.Body>
             </Card>
                 <Card className="main_card" id="main_hotel">
-                    <Card.Img src={main_hotelImage}/>
+                    <Card.Img className="main_img" src={main_hotelImage}/>
                     <Card.Body>
                         <Card.Title>숙박시설</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the cards content.
+                        <Card.Text className="main_text">
+                            대전 전역 멋지고 뷰가 좋은 숙박시설을 확인 할 수 있습니다.
                         </Card.Text>
                         <Button className="main_button">숙박시설 바로가기</Button>
                     </Card.Body>
                 </Card>
                 <Card className="main_card" id="main_shp">
-                    <Card.Img src={main_shpImage}/>
+                    <Card.Img className="main_img" src={main_shpImage}/>
                     <Card.Body>
                         <Card.Title>쇼핑몰</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the cards content.
+                        <Card.Text className="main_text">
+                            대전 전역 복합 쇼핑몰을 확인 할 수 있습니다.
                         </Card.Text>
                         <Button className="main_button">쇼핑몰 바로가기</Button>
                     </Card.Body>

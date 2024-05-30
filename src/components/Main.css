@@ -42,3 +42,11 @@
 #main_shp{
     color: #f8a5c2;
 }
+
+.main_wrapper .main_img{
+    height: 200px;
+}
+.main_wrapper .main_text{
+    font-size: 20px;
+    color: black;
+}
