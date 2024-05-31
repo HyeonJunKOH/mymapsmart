@@ -50,3 +50,19 @@
     font-size: 20px;
     color: black;
 }
+.main_wrapper .main_button_tour{
+    background-color:#f3a683 ;
+    border: none;
+}
+.main_wrapper .main_button_food {
+    background-color: #778beb;
+    border: none;
+}
+.main_wrapper .main_button_hotel {
+    background-color: #63cdda;
+    border: none;
+}
+.main_wrapper .main_button_shp {
+    background-color: #f8a5c2;
+    border: none;
+}

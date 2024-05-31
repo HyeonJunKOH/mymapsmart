@@ -25,9 +25,9 @@ function Main(){
                 <Card.Body>
                     <Card.Title>관광지</Card.Title>
                     <Card.Text className="main_text">
-                        대전 전역에 멋지고 즐거운 관광지를 확인 할 수 있습니다.
+                        대전 전역에 멋지고 즐거운 관광지를 만나보세요.
                     </Card.Text>
-                    <Button className="main_button">관광지 바로가기</Button>
+                    <Button className="main_button_tour">관광지 바로가기</Button>
                 </Card.Body>
             </Card>
             <Card className="main_card" id="main_food">
@@ -35,9 +35,9 @@ function Main(){
                 <Card.Body>
                     <Card.Title>음식점</Card.Title>
                     <Card.Text className="main_text">
-                        대전 전역에 맛있는 맛집을 확인 할 수 있습니다.
+                        대전 전역에 맛있는 맛집을 확인해보세요.
                     </Card.Text>
-                    <Button className="main_button">음식점 바로가기</Button>
+                    <Button className="main_button_food">음식점 바로가기</Button>
                 </Card.Body>
             </Card>
                 <Card className="main_card" id="main_hotel">
@@ -45,9 +45,9 @@ function Main(){
                     <Card.Body>
                         <Card.Title>숙박시설</Card.Title>
                         <Card.Text className="main_text">
-                            대전 전역 멋지고 뷰가 좋은 숙박시설을 확인 할 수 있습니다.
+                            대전 전역 멋지고 뷰가 좋은 숙박시설을 만나보세요.
                         </Card.Text>
-                        <Button className="main_button">숙박시설 바로가기</Button>
+                        <Button className="main_button_hotel">숙박시설 바로가기</Button>
                     </Card.Body>
                 </Card>
                 <Card className="main_card" id="main_shp">
@@ -55,9 +55,9 @@ function Main(){
                     <Card.Body>
                         <Card.Title>쇼핑몰</Card.Title>
                         <Card.Text className="main_text">
-                            대전 전역 복합 쇼핑몰을 확인 할 수 있습니다.
+                            대전 전역에 있는 복합 쇼핑몰을 확인해보세요.
                         </Card.Text>
-                        <Button className="main_button">쇼핑몰 바로가기</Button>
+                        <Button className="main_button_shp">쇼핑몰 바로가기</Button>
                     </Card.Body>
                 </Card>
             </div>
