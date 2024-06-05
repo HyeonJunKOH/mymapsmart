@@ -1,9 +1,15 @@
+import Header from "../components/Header";
+
 
 function Tour(){
     return(
-        <div>
-            Tour
-        </div>
+        <>
+            <Header
+                title={"관광지"}
+                leftChild={"🏠"}
+                rightChild={"⭐"}
+            />
+        </>
     )
 }
 

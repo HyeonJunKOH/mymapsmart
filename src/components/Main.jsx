@@ -7,6 +7,7 @@ import main_hotelImage from "../assets/main_hotel.jpeg"
 import main_shpImage from "../assets/main_shp.png";
 import main_foodImage from "../assets/main_food.jpg";
 import 'animate.css'
+import { Link } from "react-router-dom";
 
 
 function Main(){
@@ -27,7 +28,9 @@ function Main(){
                     <Card.Text className="main_text">
                         대전 전역에 멋지고 즐거운 관광지를 만나보세요.
                     </Card.Text>
-                    <Button className="main_button_tour">관광지 바로가기</Button>
+                    <Button className="main_button_tour">
+                        <Link to="/tour" className="link_tour">관광지 바로가기</Link>
+                    </Button>
                 </Card.Body>
             </Card>
             <Card className="main_card" id="main_food">
@@ -37,7 +40,9 @@ function Main(){
                     <Card.Text className="main_text">
                         대전 전역에 맛있는 맛집을 확인해보세요.
                     </Card.Text>
-                    <Button className="main_button_food">음식점 바로가기</Button>
+                    <Button className="main_button_food">
+                        <Link to="/food" className="link_food">음식점 바로가기</Link>
+                    </Button>
                 </Card.Body>
             </Card>
                 <Card className="main_card" id="main_hotel">
@@ -47,7 +52,9 @@ function Main(){
                         <Card.Text className="main_text">
                             대전 전역 멋지고 뷰가 좋은 숙박시설을 만나보세요.
                         </Card.Text>
-                        <Button className="main_button_hotel">숙박시설 바로가기</Button>
+                        <Button className="main_button_hotel">
+                            <Link to="/hotel" className="link_hotel">숙박시설 바로가기</Link>
+                        </Button>
                     </Card.Body>
                 </Card>
                 <Card className="main_card" id="main_shp">
@@ -57,7 +64,9 @@ function Main(){
                         <Card.Text className="main_text">
                             대전 전역에 있는 복합 쇼핑몰을 확인해보세요.
                         </Card.Text>
-                        <Button className="main_button_shp">쇼핑몰 바로가기</Button>
+                        <Button className="main_button_shp">
+                            <Link to="/shp" className="link_shp">쇼핑몰 바로가기</Link>
+                        </Button>
                     </Card.Body>
                 </Card>
             </div>

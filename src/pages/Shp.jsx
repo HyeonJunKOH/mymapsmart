@@ -1,9 +1,15 @@
-
+import Header from "../components/Header";
 
 
 function Shp(){
     return(
-        <div>Shp</div>
+        <>
+            <Header
+                title={"쇼핑몰"}
+                leftChild={"🏠"}
+                rightChild={"⭐"}
+            />
+        </>
     )
 }
 

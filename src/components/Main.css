@@ -51,7 +51,7 @@
     height: 25rem;
 }
 
-#main_tour{
+#main_tour {
     color: #f3a683;
 }
 #main_food{
@@ -86,4 +86,9 @@
 .main_wrapper .main_button_shp {
     background-color: #f8a5c2;
     border: none;
+}
+.link_tour,.link_food,.link_hotel,.link_shp {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
 }

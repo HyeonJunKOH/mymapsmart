@@ -1,9 +1,15 @@
-
+import Header from "../components/Header";
 
 
 function Hotel(){
     return(
-        <div>Hotel</div>
+        <>
+            <Header
+                title={"숙박시설"}
+                leftChild={"🏠"}
+                rightChild={"⭐"}
+            />
+        </>
     )
 }
 

@@ -1,7 +1,17 @@
+import Header from "../components/Header";
+
+
+
 
 function Food(){
     return(
-        <div>Food</div>
+        <>
+            <Header
+                title={"음식점"}
+                leftChild={"🏠"}
+                rightChild={"⭐"}
+            />
+        </>
     )
 }
 

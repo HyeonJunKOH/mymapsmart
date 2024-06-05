@@ -1,14 +1,15 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import Detail from './pages/Detail'
+import Tour from './pages/Tour'
 import Home from './pages/Home'
 import Favorite from './pages/Favorite'
 import NotFound from './pages/NotFound'
 import { useEffect } from 'react'
 import axios from 'axios'
 import {TourUrl, ShpUrl, RestUrl, RomUrl} from './api'
-
-
+import Food from './pages/Food'
+import Hotel from './pages/Hotel'
+import Shp from './pages/Shp'
 
 function App() {
   // 문화관광지 api 로컬 스토리지 저장
@@ -38,7 +39,10 @@ function App() {
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/favorite' element={<Favorite />} />
-      <Route path='/detail' element={<Detail />} />
+      <Route path='/tour' element={<Tour />} />
+      <Route path='/food' element={<Food/>}/>
+      <Route path='/hotel' element={<Hotel/>}/>
+      <Route path='/shp' element={<Shp/>} />
       <Route path='*' element={<NotFound />} />
     </Routes>
   )
