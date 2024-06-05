@@ -4,9 +4,30 @@
     height: 70%;
 }
 .main_title1{
+    background-color:#f9ca24 ;
     text-align: center;
-    margin-top: 80px;
+    margin-top: 20px;
     font-size: 25px;
+    height: 60px;
+    position: relative;
+    animation: slideInDown;
+    animation-duration: 2s;
+}
+.main_title1::after{
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    /* 크기를 필요에 따라 조정합니다 */
+    border-right: 20px solid transparent;
+    /* 크기를 필요에 따라 조정합니다 */
+    border-top: 15px solid #f9ca24;
+    /* 배경색과 동일하게 합니다 */
+    position: absolute;
+    bottom: -14px;
+    /* 삼각형의 크기에 따라 조정합니다 */
+    left: 50%;
+    transform: translateX(-50%);
 }
 .main_title2{
     font-size: 35px;
@@ -14,7 +35,7 @@
     padding: 10px;
 }
 .main_title3{
-    font-size: 18px;
+    font-size: 19px;
     text-align: center;
 }
 

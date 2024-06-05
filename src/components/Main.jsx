@@ -6,7 +6,7 @@ import main_tourImage from "../assets/main_tour.jpg"
 import main_hotelImage from "../assets/main_hotel.jpeg"
 import main_shpImage from "../assets/main_shp.png";
 import main_foodImage from "../assets/main_food.jpg";
-
+import 'animate.css'
 
 
 function Main(){
