@@ -1,14 +1,24 @@
+import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import Navibar from "../components/Navibar";
+
 
 
 function Tour(){
-    return(
+    const navigate = useNavigate();
+
+    const handleHomeClick = () => {
+        navigate(`/`);
+    };
+
+    return (
         <>
             <Header
                 title={"관광지"}
-                leftChild={"🏠"}
+                leftChild={<button onClick={handleHomeClick}>🏠</button>}
                 rightChild={"⭐"}
             />
+            <Navibar/>
         </>
     )
 }

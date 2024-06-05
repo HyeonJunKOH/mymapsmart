@@ -34,10 +34,10 @@
 
 .menu_wrapper .menu_hotel {
     width: 25%;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    background-color: #63cdda;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        background-color: #63cdda;
 }
 
 .menu_wrapper .menu_hotel:hover {

@@ -20,6 +20,7 @@
     width: 25%;
     font-size: 25px;
     justify-content: flex-start;
+    cursor: pointer;
 }
 
 .Header .header_right {
@@ -27,4 +28,5 @@
     font-size: 25px;
     justify-content: flex-end;
     border: none;
+    cursor: pointer;
 }

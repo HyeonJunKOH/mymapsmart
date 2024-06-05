@@ -1,6 +1,6 @@
-import "./Menu.css"
+import "./Navibar.css"
 
-function Menu() {
+function Navibar() {
     return (
         <>
             <div className="menu_wrapper">
@@ -13,4 +13,4 @@ function Menu() {
     )
 }
 
-export default Menu;
+export default Navibar;
