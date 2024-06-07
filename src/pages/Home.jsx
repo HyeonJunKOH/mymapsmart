@@ -9,16 +9,20 @@ function Home(){
 
     const navigate = useNavigate();
 
-    const handleHomeClick = () => {
+    const handleHome = () => {
         navigate(`/`);
     };
+
+    const handleFavorite = () =>{
+        navigate(`/favorite`);
+    }
 
     return (
         <>
             <Header
                 title={"MapsMart"}
-                leftChild={<FontAwesomeIcon icon={faHouseChimney} onClick={handleHomeClick} />}
-                rightChild={<FontAwesomeIcon icon={faHeartCirclePlus} />}
+                leftChild={<FontAwesomeIcon icon={faHouseChimney} onClick={handleHome} />}
+                rightChild={<FontAwesomeIcon icon={faHeartCirclePlus} onClick={handleFavorite} />}
             />
             <Main/>
         </>

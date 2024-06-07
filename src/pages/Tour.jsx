@@ -10,16 +10,19 @@ import { faHeartCirclePlus } from "@fortawesome/free-solid-svg-icons";
 function Tour(){
     const navigate = useNavigate();
 
-    const handleHomeClick = () => {
+    const handleHome = () => {
         navigate(`/`);
     };
+    const handleFavorite = () => {
+        navigate(`/favorite`);
+    }
 
     return (
         <>
             <Header
                 title={"관광지"}
-                leftChild={<FontAwesomeIcon icon={faHouseChimney} onClick={handleHomeClick} />}
-                rightChild={<FontAwesomeIcon icon={faHeartCirclePlus} />}
+                leftChild={<FontAwesomeIcon icon={faHouseChimney} onClick={handleHome} />}
+                rightChild={<FontAwesomeIcon icon={faHeartCirclePlus} onClick={handleFavorite} />}
             />
             <Menu/>
         </>

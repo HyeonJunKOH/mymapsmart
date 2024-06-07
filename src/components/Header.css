@@ -11,20 +11,22 @@
 }
 
 .Header .header_title {
-    width: 50%;
+    width: 90%;
     font-size: 35px;
     justify-content: center;
 }
 
 .Header .header_left {
-    width: 25%;
+    width: 5%;
     font-size: 25px;
     justify-content: flex-start;
+    cursor: pointer;
 }
 
 .Header .header_right {
-    width: 25%;
+    width: 5%;
     font-size: 25px;
     justify-content: flex-end;
     border: none;
+    cursor: pointer;
 }
