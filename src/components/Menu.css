@@ -1,12 +1,12 @@
 .menu_wrapper {
     display: flex;
     font-size: 25px;
-    padding: 30px 0px;
+    margin-top: 20px;
     height: 40px;
     line-height: 1.5;
 }
 
-.menu_wrapper .menu_tour{
+.menu_wrapper .menu_tour {
     width: 25%;
     text-align: center;
     border: none;
@@ -34,10 +34,10 @@
 
 .menu_wrapper .menu_hotel {
     width: 25%;
-        text-align: center;
-        border: none;
-        border-radius: 5px;
-        background-color: #63cdda;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #63cdda;
 }
 
 .menu_wrapper .menu_hotel:hover {

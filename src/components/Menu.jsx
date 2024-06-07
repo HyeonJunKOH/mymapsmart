@@ -1,7 +1,7 @@
-import "./Navibar.css"
+import "./Menu.css";
 
-function Navibar() {
-    return (
+function Menu(){
+    return(
         <>
             <div className="menu_wrapper">
                 <div className="menu_tour">관광지</div>
@@ -13,4 +13,4 @@ function Navibar() {
     )
 }
 
-export default Navibar;
+export default Menu;
