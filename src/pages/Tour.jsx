@@ -2,8 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Menu from "../components/Menu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouseChimney } from "@fortawesome/free-solid-svg-icons";
-import { faHeartCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import { faHouseChimney, faHeartCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 
 
