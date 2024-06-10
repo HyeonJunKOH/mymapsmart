@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Detail.css"
-import Pagination from 'react-bootstrap/Pagination'
+import PagenationComponent from "./PagenationComponent";
 
 function TourDetail(){
     const [currentPage, setCurrentPage] = useState(1);
@@ -46,25 +46,11 @@ function TourDetail(){
             ) : (
                 <div>Loading...</div>
             )}
-        <Pagination className="page">
-            <Pagination.First onClick={()=>handlePageChange(1)}/>
-            <Pagination.Prev
-                onClick={()=> handlePageChange(currentPage > 1 ? currentPage -1 : 1)}
-            />
-            {[...Array(totalPages).keys()].map(number =>(
-                <Pagination.Item
-                    key={number+1}
-                    active={number + 1 === currentPage}
-                    onClick={()=> handlePageChange(number + 1)}
-                >
-                    {number + 1}
-                </Pagination.Item>
-            ))}
-            <Pagination.Next
-                onClick={()=> handlePageChange(currentPage < totalPages ? currentPage+1 : totalPages)}
-            />
-            <Pagination.Last onClick={()=>handlePageChange(totalPages)}/>
-        </Pagination>
+        <PagenationComponent
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+        />
         </div>
     );
 }
