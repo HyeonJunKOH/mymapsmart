@@ -8,7 +8,7 @@ function TourDetail(){
     useEffect(()=>{
         const data = JSON.parse(localStorage.getItem("data"));
         if (data) {
-            const tourItems = data.filter(item => item.type === 'tour');
+            const tourItems = data.slice(0,10);
             setTourData(tourItems);
         }
     },[])
@@ -16,12 +16,18 @@ function TourDetail(){
         <div className="detail_wrapper">
             {tourData.length > 0 ? (
                 tourData.map((item, index) => (
-                    <div key={index} className="detail_item">
-                        <div className="detail_name">{item.tourspotNm}</div>
-                        <div className="detail_address">{item.tourspotAddr}</div>
-                        <div className="detail_description">상세설명</div>
-                        <button className="detail_favorite_button">담기</button>
-                        <button className="detail_view_button">상세보기</button>
+                    <div key={index} className="detail_container">
+                        <div className="detail_item">
+                            <div className="text_container">
+                                <div className="detail_name">장소명 : {item.tourspotNm}</div>
+                                <div className="detail_address">주소 : {item.tourspotAddr}</div>
+                                <div className="detail_description">설명 : {item.tourspotSumm}</div>
+                            </div>
+                            <div className="detail_btn">
+                                <button className="detail_favorite_btn">담기</button>
+                                <button className="detail_view_btn">상세보기</button>
+                            </div>
+                        </div>
                     </div>
                 ))
             ) : (

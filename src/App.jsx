@@ -21,13 +21,11 @@ function App() {
         const response3 = await axios.get(RestUrl);
         const response4 = await axios.get(RomUrl);
 
-        const mergeData = [
-          ...response1.data.response.body.items.map(item => ({ ...item, type: 'tour' })),
-          ...response2.data.response.body.items.map(item => ({ ...item, type: 'shp' })),
-          ...response3.data.response.body.items.map(item => ({ ...item, type: 'rest' })),
-          ...response4.data.response.body.items.map(item => ({ ...item, type: 'rom' }))
-        ];
-        console.log("Merged Data:", mergeData); // 콘솔에 병합된 데이터 출력
+        const mergeData = response1.data.response.body.items.concat(
+          response2.data.response.body.items,
+          response3.data.response.body.items,
+          response4.data.response.body.items
+        );
         localStorage.setItem("data", JSON.stringify(mergeData));
       }catch(error){
         console.error(error);
