@@ -1,21 +1,34 @@
 import { useEffect, useState } from "react";
 import "./Detail.css"
+import Pagination from 'react-bootstrap/Pagination'
 
 function TourDetail(){
-
+    const [currentPage, setCurrentPage] = useState(1);
     const [tourData, setTourData] = useState([]);
+    const itemsPerPage = 10;
 
     useEffect(()=>{
         const data = JSON.parse(localStorage.getItem("data"));
         if (data) {
-            const tourItems = data.slice(0,10);
+            const tourItems = data.slice(0,142)
             setTourData(tourItems);
         }
-    },[])
+    },[]);
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = tourData.slice(indexOfFirstItem, indexOfLastItem);
+
+    const totalPages = Math.ceil(tourData.length / itemsPerPage);
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
     return(
         <div className="detail_wrapper">
-            {tourData.length > 0 ? (
-                tourData.map((item, index) => (
+            {currentItems.length > 0 ? (
+                currentItems.map((item, index) => (
                     <div key={index} className="detail_container">
                         <div className="detail_item">
                             <div className="text_container">
@@ -33,6 +46,25 @@ function TourDetail(){
             ) : (
                 <div>Loading...</div>
             )}
+        <Pagination className="page">
+            <Pagination.First onClick={()=>handlePageChange(1)}/>
+            <Pagination.Prev
+                onClick={()=> handlePageChange(currentPage > 1 ? currentPage -1 : 1)}
+            />
+            {[...Array(totalPages).keys()].map(number =>(
+                <Pagination.Item
+                    key={number+1}
+                    active={number + 1 === currentPage}
+                    onClick={()=> handlePageChange(number + 1)}
+                >
+                    {number + 1}
+                </Pagination.Item>
+            ))}
+            <Pagination.Next
+                onClick={()=> handlePageChange(currentPage < totalPages ? currentPage+1 : totalPages)}
+            />
+            <Pagination.Last onClick={()=>handlePageChange(totalPages)}/>
+        </Pagination>
         </div>
     );
 }
