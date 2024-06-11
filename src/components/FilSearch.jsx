@@ -1,26 +1,44 @@
+import { useState } from "react";
 import "./FilSearch.css"
+import propTypes from "prop-types";
 
-function FilSearch() {
+function FilSearch({ setSearchTerm, setSelectedDistrict }) {
+    const [userInput, setUserInput] = useState('');
+
+    const handleSearchChange = (e)=>{
+        setUserInput(e.target.value);
+        setSearchTerm(e.target.value);
+    };
+
+    const handleFilterChange = (e)=>{
+        setSelectedDistrict(e.target.value);
+    }
+
     return (
         <>
             <div className="FilSearch_wrapper">
                 <div className="Filter">
-                    <select name="필터" className="Filter_select">
-                        <option value="1">구전체</option>
-                        <option value="2">유성구</option>
-                        <option value="3">서구</option>
-                        <option value="4">중구</option>
-                        <option value="5">동구</option>
-                        <option value="6">대덕구</option>
+                    <select name="필터" className="Filter_select" onChange={handleFilterChange}>
+                        <option value="구전체">구전체</option>
+                        <option value="유성구">유성구</option>
+                        <option value="서구">서구</option>
+                        <option value="중구">중구</option>
+                        <option value="동구">동구</option>
+                        <option value="대덕구">대덕구</option>
                     </select>
                 </div>
                 <div className="Search">
-                    <input type="text" className="Search_input" />
+                    <input type="text" className="Search_input" value={userInput} onChange={handleSearchChange}/>
                     <img className="Search_img" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png" />
                 </div>
             </div>
         </>
     )
 }
+
+FilSearch.propTypes = {
+    setSearchTerm: propTypes.func.isRequired,
+    setSelectedDistrict: propTypes.func.isRequired,
+};
 
 export default FilSearch;

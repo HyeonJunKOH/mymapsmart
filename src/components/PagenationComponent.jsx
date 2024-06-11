@@ -31,7 +31,7 @@ function PagenationComponent({currentPage, totalPages, onPageChange}){
         for(let number = startPage; number <= endPage; number++){
             items.push(
                 <Pagination.Item
-                    key={number}
+                    key={`page-${number}`}
                     active={number === currentPage}
                     onClick={()=>handlePageChange(number)}
                 >
