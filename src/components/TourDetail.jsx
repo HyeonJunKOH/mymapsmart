@@ -15,6 +15,9 @@ function TourDetail(){
     const [selectedDistrict, setSelectedDistrict] = useState('구전체');
     // 검색기능 스테이트
     const [searchTerm, setSearchTerm] = useState('');
+    // 담기기능을 위한 스테이트
+    const [favorites, setFavorites] = useState([]);
+
 
     useEffect(()=>{
         const data = JSON.parse(localStorage.getItem("data"));
@@ -55,6 +58,10 @@ function TourDetail(){
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
     };
+    // 아이템을 즐겨찾기에 추가하는 함수
+    const addFavorite = (item) => {
+        setFavorites([...favorites, item]);
+    };
 
     return(
         <div>
@@ -73,7 +80,7 @@ function TourDetail(){
                                     <div className="detail_description">설명 : {item.tourspotSumm}</div>
                                 </div>
                                 <div className="detail_btn">
-                                    <button className="detail_favorite_btn">담기</button>
+                                    <button className="detail_favorite_btn" onClick={() => addFavorite(item)}>담기</button>
                                     <button className="detail_view_btn">상세보기</button>
                                 </div>
                             </div>
