@@ -2,14 +2,18 @@ import { useState } from "react";
 import "./FilSearch.css"
 import propTypes from "prop-types";
 
+
+
+// { setSearchTerm, setSelectedDistrict } TourDetail에 보낼 
 function FilSearch({ setSearchTerm, setSelectedDistrict }) {
     const [userInput, setUserInput] = useState('');
 
+    // 검색기능 함수
     const handleSearchChange = (e)=>{
         setUserInput(e.target.value);
         setSearchTerm(e.target.value);
     };
-
+    // 필터기능 함수
     const handleFilterChange = (e)=>{
         setSelectedDistrict(e.target.value);
     }
