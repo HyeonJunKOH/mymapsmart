@@ -6,10 +6,12 @@ function FilSearch() {
             <div className="FilSearch_wrapper">
                 <div className="Filter">
                     <select name="필터" className="Filter_select">
-                        <option value="1">주소</option>
-                        <option value="2">이름</option>
-                        <option value="3">테스트</option>
-                        <option value="4">테스트2</option>
+                        <option value="1">구전체</option>
+                        <option value="2">유성구</option>
+                        <option value="3">서구</option>
+                        <option value="4">중구</option>
+                        <option value="5">동구</option>
+                        <option value="6">대덕구</option>
                     </select>
                 </div>
                 <div className="Search">
