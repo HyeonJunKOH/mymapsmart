@@ -17,11 +17,11 @@ function Header({title}) {
     return (
         <header className="Header">
             <div className="header_left">
-                <FontAwesomeIcon icon={faHouseChimney} onClick={handleHome} />
+                <FontAwesomeIcon icon={faHouseChimney} onClick={handleHome} className="header_home" />
             </div>
             <div className="header_title">{title}</div>
             <div className="header_right">
-                <FontAwesomeIcon icon={faHeartCirclePlus} onClick={handleFavorite}/>
+                <FontAwesomeIcon icon={faHeartCirclePlus} onClick={handleFavorite} className="header_favorite"/>
             </div>
         </header>
     );

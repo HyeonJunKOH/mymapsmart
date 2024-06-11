@@ -3,6 +3,8 @@ import "./Detail.css"
 import PagenationComponent from "./PagenationComponent";
 import FilSearch from "./FilSearch";
 
+
+
 function FoodDetail() {
     // 푸드데이터 스테이트
     const [foodData, setFoodData] = useState([]);

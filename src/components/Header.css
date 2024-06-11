@@ -20,13 +20,15 @@
     width: 5%;
     font-size: 25px;
     justify-content: flex-start;
-    cursor: pointer;
 }
-
 .Header .header_right {
     width: 5%;
     font-size: 25px;
     justify-content: flex-end;
-    border: none;
+}
+.Header .header_left .header_home{
+    cursor: pointer;
+}
+.Header .header_right .header_favorite {
     cursor: pointer;
 }
