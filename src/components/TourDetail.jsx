@@ -58,7 +58,7 @@ function TourDetail(){
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
     };
-    // 아이템을 즐겨찾기에 추가하는 함수
+    // 담기버튼을 눌렀을 때 로컬스토리지에 따로 즐겨찾기로 저장하는 함수
     const addFavorite = (item) => {
         setFavorites([...favorites, item]);
     };
