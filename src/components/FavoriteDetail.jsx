@@ -100,6 +100,34 @@ function FavoriteDetail() {
         setCurrentPage(pageNumber);
     };
 
+    // 즐겨찾기 삭제버튼
+    const handleDeleteChange = (item,type) => {
+        if(type === 'tour'){
+            const updatedTourFavorites = tourFavoriteData.filter(item => item.tourspotNm !== item.tourspotNm);
+            setTourFavoriteData(updatedTourFavorites);
+            setFilteredTourData(updatedTourFavorites);
+            localStorage.setItem('tourFavorites', JSON.stringify(updatedTourFavorites));
+        }
+        if(type === 'shppg'){
+            const updatedShpFavorites = shpFavoriteData.filter(item => item.shppgNm !== item.shppgNm);
+            setShpFavoriteData(updatedShpFavorites);
+            setFilteredShpData(updatedShpFavorites);
+            localStorage.setItem('shpFavorites', JSON.stringify(updatedShpFavorites));
+        }
+        if(type === 'rest'){
+            const updatedFoodFavorites = foodFavoriteData.filter(item => item.restrntNm !== item.restrntNm);
+            setFoodFavoriteData(updatedFoodFavorites);
+            setFilteredFoodData(updatedFoodFavorites);
+            localStorage.setItem('foodFavorites', JSON.stringify(updatedFoodFavorites));
+        }
+        if(type === 'roms'){
+            const updatedHotelFavorites = hotelFavoriteData.filter(item => item.romsNm !== item.romsNm);
+            setHotelFavoriteData(updatedHotelFavorites);
+            setFilteredHotelData(updatedHotelFavorites);
+            localStorage.setItem('hotelFavorites', JSON.stringify(updatedHotelFavorites));
+        }
+    }
+
     return (
         <div>
             <FilSearch
@@ -118,6 +146,7 @@ function FavoriteDetail() {
                                     <div className="detail_description">설명 : {item.tourspotSumm}</div>
                                 </div>
                                 <div className="detail_btn">
+                                    <button className="detail_favorite_btn" onClick={() => handleDeleteChange(item, 'tour')}>삭제</button>
                                     <button className="detail_view_btn">상세보기</button>
                                 </div>
                             </div>
@@ -137,6 +166,7 @@ function FavoriteDetail() {
                                     <div className="detail_description">설명 : {item.restrntSumm}</div>
                                 </div>
                                 <div className="detail_btn">
+                                    <button className="detail_favorite_btn" onClick={() => handleDeleteChange(item,'rest')}>삭제</button>
                                     <button className="detail_view_btn">상세보기</button>
                                 </div>
                             </div>
@@ -156,6 +186,7 @@ function FavoriteDetail() {
                                     <div className="detail_description">설명 : {item.romsSumm}</div>
                                 </div>
                                 <div className="detail_btn">
+                                    <button className="detail_favorite_btn" onClick={() => handleDeleteChange(item,'roms')}>삭제</button>
                                     <button className="detail_view_btn">상세보기</button>
                                 </div>
                             </div>
@@ -175,6 +206,7 @@ function FavoriteDetail() {
                                     <div className="detail_description">설명 : {item.shppgSumm}</div>
                                 </div>
                                 <div className="detail_btn">
+                                    <button className="detail_favorite_btn" onClick={() => handleDeleteChange(item,'shppg')}>삭제</button>
                                     <button className="detail_view_btn">상세보기</button>
                                 </div>
                             </div>
