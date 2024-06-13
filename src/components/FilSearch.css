@@ -4,11 +4,11 @@
 }
 
 .Filter {
-    width: 25%;
+    width: 50%;
 }
 
 .Filter_select {
-    width: 100%;
+    width: 50%;
     height: 30px;
     border: 1px solid #bbb;
     border-radius: 8px;

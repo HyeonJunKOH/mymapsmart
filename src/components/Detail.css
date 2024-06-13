@@ -1,16 +1,11 @@
 .detail_wrapper{
     display: flex;
     flex-wrap: wrap;
-    /* Flex items will wrap to the next line */
     gap: 20px;
-    /* Gap between each detail_item */
     justify-content: space-between;
-    /* Space between the items */
-}
-.detail_title{
-    text-align: center;
     margin-top: 20px;
 }
+
 .detail_none{
     display: flex;
     justify-content: center;
@@ -23,9 +18,7 @@
 
 .detail_container{
     flex: 1 1 calc(50% - 20px);
-    /* Each item will take up 50% of the container width minus the gap */
     box-sizing: border-box;
-    /* Ensure padding and border are included in the width */
     margin-top: 20px;
 }
 .detail_item{
@@ -53,6 +46,13 @@
     border-radius: 5px;
     color: white;
 }
+.detail_delete_btn{
+    border: none;
+    background-color: #c0392b;
+    height: 30px;
+    border-radius: 5px;
+    color: white;
+}
 .detail_view_btn{
     border: none;
     background-color: #6c5ce7;
@@ -64,5 +64,8 @@
     background-color: blue;
 }
 .detail_view_btn:hover{
+    background-color: blue;
+}
+.detail_delete_btn:hover{
     background-color: blue;
 }

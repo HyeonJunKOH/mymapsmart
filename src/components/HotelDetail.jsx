@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Detail.css"
 import PagenationComponent from "./PagenationComponent";
 import FilSearch from "./FilSearch";
+import FavAlert from "./FavAlert";
 
 function HotelDetail() {
     // 호텔 데이터 스테이트
@@ -67,6 +68,7 @@ function HotelDetail() {
             <FilSearch
                 setSearchTerm={setSearchTerm}
                 setSelectedDistrict={setSelectedDistrict}
+                showCategoryFilter={false}
             />
             <div className="detail_wrapper">
                 {currentItems.length > 0 ? (
@@ -79,7 +81,7 @@ function HotelDetail() {
                                     <div className="detail_description">설명 : {item.romsSumm}</div>
                                 </div>
                                 <div className="detail_btn">
-                                    <button className="detail_favorite_btn" onClick={()=>addFavorite(item)}>담기</button>
+                                    <FavAlert item={item} onConfirm={addFavorite} />
                                     <button className="detail_view_btn">상세보기</button>
                                 </div>
                             </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Detail.css"
 import PagenationComponent from "./PagenationComponent";
 import FilSearch from "./FilSearch";
+import FavAlert from "./FavAlert";
 
 function ShpDetail() {
     // 쇼핑몰 데이터 스테이트
@@ -67,6 +68,7 @@ function ShpDetail() {
             <FilSearch
                 setSearchTerm={setSearchTerm}
                 setSelectedDistrict={setSelectedDistrict}
+                showCategoryFilter={false}
             />
             <div className="detail_wrapper">
                 {currentItems.length > 0 ? (
@@ -78,7 +80,7 @@ function ShpDetail() {
                                     <div className="detail_address">주소 : {item.shppgAddr}</div>
                                 </div>
                                 <div className="detail_btn">
-                                    <button className="detail_favorite_btn" onClick={()=>addFavorite(item)}>담기</button>
+                                    <FavAlert item={item} onConfirm={addFavorite}/>
                                     <button className="detail_view_btn">상세보기</button>
                                 </div>
                             </div>

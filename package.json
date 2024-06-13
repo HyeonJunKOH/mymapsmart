@@ -24,7 +24,8 @@
     "react-helmet-async": "^2.0.5",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.23.1",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "sweetalert2": "^11.11.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./Detail.css"
 import PagenationComponent from "./PagenationComponent";
 import FilSearch from "./FilSearch";
+import FavAlert from "./FavAlert";
 
 function TourDetail(){
     // 관광지 데이터
@@ -15,6 +16,7 @@ function TourDetail(){
     const [selectedDistrict, setSelectedDistrict] = useState('구전체');
     // 검색기능 스테이트
     const [searchTerm, setSearchTerm] = useState('');
+
 
     useEffect(()=>{
         const data = JSON.parse(localStorage.getItem("data"));
@@ -55,18 +57,24 @@ function TourDetail(){
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
     };
+
+
     // 담기버튼을 눌렀을 때 로컬스토리지에 따로 즐겨찾기로 저장하는 함수
     const addFavorite = (item) => {
-        const existingFavorites = JSON.parse(localStorage.getItem("tourFavorites"))||[];
-        const updatedFavorites = [...existingFavorites, item];
-        localStorage.setItem("tourFavorites", JSON.stringify(updatedFavorites))
+        if (item) {
+            const existingFavorites = JSON.parse(localStorage.getItem("tourFavorites")) || [];
+            const updatedFavorites = [...existingFavorites, item];
+            localStorage.setItem("tourFavorites", JSON.stringify(updatedFavorites));
+        }
     };
+
 
     return(
         <div>
             <FilSearch
                 setSearchTerm={setSearchTerm}
                 setSelectedDistrict={setSelectedDistrict}
+                showCategoryFilter={false}
             />
             <div className="detail_wrapper">
                 {currentItems.length > 0 ? (
@@ -79,7 +87,7 @@ function TourDetail(){
                                     <div className="detail_description">설명 : {item.tourspotSumm}</div>
                                 </div>
                                 <div className="detail_btn">
-                                    <button className="detail_favorite_btn" onClick={()=>addFavorite(item)}>담기</button>
+                                    <FavAlert item={item} onConfirm={addFavorite}/>
                                     <button className="detail_view_btn">상세보기</button>
                                 </div>
                             </div>
