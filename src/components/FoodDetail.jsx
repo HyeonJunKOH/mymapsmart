@@ -17,9 +17,6 @@ function FoodDetail() {
     const [selectedDistrict, setSelectedDistrict] = useState('구전체');
     // 필터 및 검색 값을 저장할 스테이트
     const [filteredData, setFilteredData] = useState([]);
-    // 즐겨찾기 담기 스테이트
-    const [favorites, setFavorites] = useState([]);
-
 
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem("data"));
@@ -62,8 +59,8 @@ function FoodDetail() {
 
     // 담기버튼을 눌렀을 때 로컬스토리지에 따로 즐겨찾기로 저장하는 함수
     const addFavorite = (item) => {
-        const updatedFavorites = [...favorites, item];
-        setFavorites(updatedFavorites);
+        const existingFavorites = JSON.parse(localStorage.getItem("foodFavorites")) || [];
+        const updatedFavorites = [...existingFavorites, item];
         localStorage.setItem("foodFavorites", JSON.stringify(updatedFavorites))
     };
 

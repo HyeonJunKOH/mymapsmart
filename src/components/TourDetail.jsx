@@ -15,9 +15,6 @@ function TourDetail(){
     const [selectedDistrict, setSelectedDistrict] = useState('구전체');
     // 검색기능 스테이트
     const [searchTerm, setSearchTerm] = useState('');
-    // 담기기능을 위한 스테이트
-    const [favorites, setFavorites] = useState([]);
-
 
     useEffect(()=>{
         const data = JSON.parse(localStorage.getItem("data"));
@@ -60,8 +57,8 @@ function TourDetail(){
     };
     // 담기버튼을 눌렀을 때 로컬스토리지에 따로 즐겨찾기로 저장하는 함수
     const addFavorite = (item) => {
-        const updatedFavorites = [...favorites, item];
-        setFavorites(updatedFavorites);
+        const existingFavorites = JSON.parse(localStorage.getItem("tourFavorites"))||[];
+        const updatedFavorites = [...existingFavorites, item];
         localStorage.setItem("tourFavorites", JSON.stringify(updatedFavorites))
     };
 

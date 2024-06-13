@@ -15,9 +15,6 @@ function HotelDetail() {
     const [filteredData, setFilteredData] = useState([]);
     // 필터기능 스테이트
     const [selectedDistrict, setSelectedDistrict] = useState('구전체');
-    // 즐겨찾기 추가 스테이트
-    const [favorites, setFavorites] = useState([]);
-
 
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem("data"));
@@ -59,8 +56,8 @@ function HotelDetail() {
 
     // 담기버튼을 눌렀을 때 로컬스토리지에 따로 즐겨찾기로 저장하는 함수
     const addFavorite = (item) => {
-        const updatedFavorites = [...favorites, item];
-        setFavorites(updatedFavorites);
+        const existingFavorites = JSON.parse(localStorage.getItem("hotelFavorites")) || [];
+        const updatedFavorites = [...existingFavorites, item];
         localStorage.setItem("hotelFavorites", JSON.stringify(updatedFavorites))
     };
 

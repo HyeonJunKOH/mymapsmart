@@ -15,8 +15,7 @@ function ShpDetail() {
     const [selectedDistrict, setSelectedDistrict] = useState('구전체');
     // 검색기능 스테이트
     const [searchTerm, setSearchTerm] = useState('');
-    // 즐겨찾기 담기 스테이트
-    const [favorites, setFavorites] = useState([]);
+
 
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem("data"));
@@ -58,8 +57,8 @@ function ShpDetail() {
 
     // 담기버튼을 눌렀을 때 로컬스토리지에 따로 즐겨찾기로 저장하는 함수
     const addFavorite = (item) => {
-        const updatedFavorites = [...favorites, item];
-        setFavorites(updatedFavorites);
+        const existingFavorites = JSON.parse(localStorage.getItem("shpFavorites")) || [];
+        const updatedFavorites = [...existingFavorites, item];
         localStorage.setItem("shpFavorites", JSON.stringify(updatedFavorites))
     };
 

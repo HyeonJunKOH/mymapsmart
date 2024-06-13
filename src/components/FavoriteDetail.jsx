@@ -103,25 +103,25 @@ function FavoriteDetail() {
     // 즐겨찾기 삭제버튼
     const handleDeleteChange = (item,type) => {
         if(type === 'tour'){
-            const updatedTourFavorites = tourFavoriteData.filter(item => item.tourspotNm !== item.tourspotNm);
+            const updatedTourFavorites = tourFavoriteData.filter(favItem => favItem.tourspotNm !== item.tourspotNm);
             setTourFavoriteData(updatedTourFavorites);
             setFilteredTourData(updatedTourFavorites);
             localStorage.setItem('tourFavorites', JSON.stringify(updatedTourFavorites));
         }
         if(type === 'shppg'){
-            const updatedShpFavorites = shpFavoriteData.filter(item => item.shppgNm !== item.shppgNm);
+            const updatedShpFavorites = shpFavoriteData.filter(favItem => favItem.shppgNm !== item.shppgNm);
             setShpFavoriteData(updatedShpFavorites);
             setFilteredShpData(updatedShpFavorites);
             localStorage.setItem('shpFavorites', JSON.stringify(updatedShpFavorites));
         }
         if(type === 'rest'){
-            const updatedFoodFavorites = foodFavoriteData.filter(item => item.restrntNm !== item.restrntNm);
+            const updatedFoodFavorites = foodFavoriteData.filter(favItem => favItem.restrntNm !== item.restrntNm);
             setFoodFavoriteData(updatedFoodFavorites);
             setFilteredFoodData(updatedFoodFavorites);
             localStorage.setItem('foodFavorites', JSON.stringify(updatedFoodFavorites));
         }
         if(type === 'roms'){
-            const updatedHotelFavorites = hotelFavoriteData.filter(item => item.romsNm !== item.romsNm);
+            const updatedHotelFavorites = hotelFavoriteData.filter(favItem => favItem.romsNm !== item.romsNm);
             setHotelFavoriteData(updatedHotelFavorites);
             setFilteredHotelData(updatedHotelFavorites);
             localStorage.setItem('hotelFavorites', JSON.stringify(updatedHotelFavorites));
@@ -134,8 +134,9 @@ function FavoriteDetail() {
                 setSearchTerm={setSearchTerm}
                 setSelectedDistrict={setSelectedDistrict}
             />
+
+            <h2 className='detail_title'>관광지 즐겨찾기</h2>
             <div className="detail_wrapper">
-                <h2>관광지 즐겨찾기</h2>
                 {currentTourItems.length > 0 ? (
                     currentTourItems.map((item, index) => (
                         <div key={index} className="detail_container">
@@ -153,9 +154,11 @@ function FavoriteDetail() {
                         </div>
                     ))
                 ) : (
-                    <div>관광지 즐겨찾기가 없습니다.</div>
+                    <div className='detail_none'>관광지 즐겨찾기가 없습니다.</div>
                 )}
-                <h2>음식점 즐겨찾기</h2>
+            </div>
+            <h2 className='detail_title'>음식점 즐겨찾기</h2>
+            <div className='detail_wrapper'>
                 {currentFoodItems.length > 0 ? (
                     currentFoodItems.map((item, index) => (
                         <div key={index} className="detail_container">
@@ -173,9 +176,11 @@ function FavoriteDetail() {
                         </div>
                     ))
                 ) : (
-                    <div>음식점 즐겨찾기가 없습니다.</div>
+                    <div className='detail_none'>음식점 즐겨찾기가 없습니다.</div>
                 )}
-                <h2>숙박시설 즐겨찾기</h2>
+            </div>
+            <h2 className='detail_title'>숙박시설 즐겨찾기</h2>
+            <div className='detail_wrapper'>
                 {currentHotelItems.length > 0 ? (
                     currentHotelItems.map((item, index) => (
                         <div key={index} className="detail_container">
@@ -193,9 +198,11 @@ function FavoriteDetail() {
                         </div>
                     ))
                 ) : (
-                    <div>숙박시설 즐겨찾기가 없습니다.</div>
+                    <div className='detail_none'>숙박시설 즐겨찾기가 없습니다.</div>
                 )}
-                <h2>쇼핑몰 즐겨찾기</h2>
+            </div>
+            <h2 className='detail_title'>쇼핑몰 즐겨찾기</h2>
+            <div className='detail_wrapper'>
                 {currentShpItems.length > 0 ? (
                     currentShpItems.map((item, index) => (
                         <div key={index} className="detail_container">
@@ -203,7 +210,6 @@ function FavoriteDetail() {
                                 <div className="text_container">
                                     <div className="detail_name">장소명 : {item.shppgNm}</div>
                                     <div className="detail_address">주소 : {item.shppgAddr}</div>
-                                    <div className="detail_description">설명 : {item.shppgSumm}</div>
                                 </div>
                                 <div className="detail_btn">
                                     <button className="detail_favorite_btn" onClick={() => handleDeleteChange(item,'shppg')}>삭제</button>
@@ -213,14 +219,15 @@ function FavoriteDetail() {
                         </div>
                     ))
                 ) : (
-                    <div>쇼핑몰 즐겨찾기가 없습니다.</div>
+                    <div className='detail_none'>쇼핑몰 즐겨찾기가 없습니다.</div>
                 )}
+            </div>
                 <PagenationComponent
                     currentPage={currentPage}
                     totalPages={totalPages}
                     onPageChange={handlePageChange}
                 />
-            </div>
+            
         </div>
     );
 }
