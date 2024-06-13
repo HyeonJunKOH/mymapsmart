@@ -15,6 +15,8 @@ function ShpDetail() {
     const [selectedDistrict, setSelectedDistrict] = useState('구전체');
     // 검색기능 스테이트
     const [searchTerm, setSearchTerm] = useState('');
+    // 즐겨찾기 담기 스테이트
+    const [favorites, setFavorites] = useState([]);
 
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem("data"));
@@ -54,6 +56,13 @@ function ShpDetail() {
         setCurrentPage(pageNumber);
     };
 
+    // 담기버튼을 눌렀을 때 로컬스토리지에 따로 즐겨찾기로 저장하는 함수
+    const addFavorite = (item) => {
+        const updatedFavorites = [...favorites, item];
+        setFavorites(updatedFavorites);
+        localStorage.setItem("shpFavorites", JSON.stringify(updatedFavorites))
+    };
+
     return (
         <div>
             <FilSearch
@@ -70,7 +79,7 @@ function ShpDetail() {
                                     <div className="detail_address">주소 : {item.shppgAddr}</div>
                                 </div>
                                 <div className="detail_btn">
-                                    <button className="detail_favorite_btn">담기</button>
+                                    <button className="detail_favorite_btn" onClick={()=>addFavorite(item)}>담기</button>
                                     <button className="detail_view_btn">상세보기</button>
                                 </div>
                             </div>
