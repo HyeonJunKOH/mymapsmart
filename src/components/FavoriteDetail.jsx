@@ -3,6 +3,8 @@ import './Detail.css'
 import FilSearch from './FilSearch';
 import PagenationComponent from './PagenationComponent';
 import DelAlert from './DelAlert';
+import { useNavigate } from 'react-router-dom';
+import AllDelAlert from './AllDelAlert';
 
 
 function FavoriteDetail() {
@@ -151,8 +153,27 @@ function FavoriteDetail() {
     }
     // 즐겨찾기 전체 삭제버튼
     const handleAllDeleteChange = () => {
-        localStorage.removeItem('tourFavorites'&& 'shpFavorites'&&'foodFavorites'&&'hotelFavorites');
+        localStorage.removeItem('tourFavorites');
+        localStorage.removeItem('foodFavorites');
+        localStorage.removeItem('hotelFavorites');
+        localStorage.removeItem('shpFavorites');
+
+        setTourFavoriteData([]);
+        setFoodFavoriteData([]);
+        setHotelFavoriteData([]);
+        setShpFavoriteData([]);
+
+        setFilteredTourData([]);
+        setFilteredFoodData([]);
+        setFilteredHotelData([]);
+        setFilteredShpData([]);
     }
+
+    // 상세보기 버튼을 눌렀을 때 디테일 페이지로 이동
+    const navigate = useNavigate();
+    const detailChange = (item) => {
+        navigate(`/detail`, { state: { item } })
+    };
 
     return (
         <div>
@@ -162,7 +183,7 @@ function FavoriteDetail() {
                 setSelectedCategory={setSelectedCategory}
                 showCategoryFilter={true}
             />
-            <button className='detail_alldelete_btn' onClick={handleAllDeleteChange}>전체 삭제</button>
+            <AllDelAlert onConfirm={handleAllDeleteChange}/>
             <div className="detail_wrapper">
                 {currentFavorites.length > 0 ? (
                     currentFavorites.map((item, index) => (
@@ -175,7 +196,7 @@ function FavoriteDetail() {
                                 </div>
                                 <div className="detail_btn">
                                     <DelAlert item={item} onConfirm={() => handleDeleteChange(item, Object.prototype.hasOwnProperty.call(item, 'tourspotNm') ? 'tour' : Object.prototype.hasOwnProperty.call(item, 'shppgNm') ? 'shppg' : Object.prototype.hasOwnProperty.call(item, 'restrntNm') ? 'rest' : 'roms')} />
-                                    <button className="detail_view_btn">상세보기</button>
+                                    <button className="detail_view_btn" onClick={()=>detailChange(item)}>상세보기</button>
                                 </div>
                             </div>
                         </div>
