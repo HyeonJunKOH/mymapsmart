@@ -116,6 +116,7 @@ function FavoriteDetail() {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const allFavorites = [...filteredTourData, ...filteredFoodData, ...filteredHotelData, ...filteredShpData];
     const currentFavorites = allFavorites.slice(indexOfFirstItem, indexOfLastItem);
+    
     // 페이지 변경 핸들러
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);

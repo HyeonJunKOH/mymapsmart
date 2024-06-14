@@ -10,6 +10,7 @@ import {TourUrl, ShpUrl, RestUrl, RomUrl} from './api'
 import Food from './pages/Food'
 import Hotel from './pages/Hotel'
 import Shp from './pages/Shp'
+import Detail from './pages/Detail'
 
 function App() {
   // 문화관광지 api 로컬 스토리지 저장
@@ -42,6 +43,7 @@ function App() {
       <Route path='/food' element={<Food/>}/>
       <Route path='/hotel' element={<Hotel/>}/>
       <Route path='/shp' element={<Shp/>} />
+      <Route path='/detail' element={<Detail/>}/>
       <Route path='*' element={<NotFound />} />
     </Routes>
   )

@@ -3,6 +3,7 @@ import "./Detail.css"
 import PagenationComponent from "./PagenationComponent";
 import FilSearch from "./FilSearch";
 import FavAlert from "./FavAlert";
+import { useNavigate } from "react-router-dom";
 
 function ShpDetail() {
     // 쇼핑몰 데이터 스테이트
@@ -63,6 +64,12 @@ function ShpDetail() {
         localStorage.setItem("shpFavorites", JSON.stringify(updatedFavorites))
     };
 
+    // 상세보기 버튼을 눌렀을 때 디테일 페이지로 이동
+    const navigate = useNavigate();
+    const detailChange = (item) => {
+        navigate(`/detail`, { state: { item } })
+    };
+
     return (
         <div>
             <FilSearch
@@ -81,7 +88,7 @@ function ShpDetail() {
                                 </div>
                                 <div className="detail_btn">
                                     <FavAlert item={item} onConfirm={addFavorite}/>
-                                    <button className="detail_view_btn">상세보기</button>
+                                    <button className="detail_view_btn" onClick={()=>detailChange(item)}>상세보기</button>
                                 </div>
                             </div>
                         </div>

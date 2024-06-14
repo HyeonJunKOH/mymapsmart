@@ -18,13 +18,13 @@ function Map(){
         // 주소-좌표 변환 객체를 생성
         const geocoder = new kakao.maps.services.Geocoder();
         // 로컬 스토리지에서 데이터 가져오기
-        const data = JSON.parse(localStorage.getItem("data"));
+        const data = JSON.parse(localStorage.getItem("shpFavorites"));
     // 마커를 생성하고 지도에 표시하는 함수
     function addMarker(data){
         if(data&&data.length > 0 ){
             data.forEach(item =>{
-                const address = item.tourspotAddr;
-                const content = item.tourspotNm;
+                const address = item.shppgAddr;
+                const content = item.shppgNm;
 
                 if (!address) {
                     console.error('Invalid address:', address);
