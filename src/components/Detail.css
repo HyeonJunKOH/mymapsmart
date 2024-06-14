@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-between;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .detail_none{
@@ -68,4 +68,14 @@
 }
 .detail_delete_btn:hover{
     background-color: blue;
+}
+
+.detail_alldelete_btn{
+    margin-top: 10px;
+    display: flex;
+    border: none;
+    border-radius: 5px;
+    background-color: #e67e22;
+    font-size: 20px;
+    color: white;
 }

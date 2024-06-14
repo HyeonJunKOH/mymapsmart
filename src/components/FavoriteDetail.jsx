@@ -149,6 +149,10 @@ function FavoriteDetail() {
             localStorage.setItem('hotelFavorites', JSON.stringify(updatedHotelFavorites));
         }
     }
+    // 즐겨찾기 전체 삭제버튼
+    const handleAllDeleteChange = () => {
+        localStorage.removeItem('tourFavorites'&& 'shpFavorites'&&'foodFavorites'&&'hotelFavorites');
+    }
 
     return (
         <div>
@@ -158,6 +162,7 @@ function FavoriteDetail() {
                 setSelectedCategory={setSelectedCategory}
                 showCategoryFilter={true}
             />
+            <button className='detail_alldelete_btn' onClick={handleAllDeleteChange}>전체 삭제</button>
             <div className="detail_wrapper">
                 {currentFavorites.length > 0 ? (
                     currentFavorites.map((item, index) => (
