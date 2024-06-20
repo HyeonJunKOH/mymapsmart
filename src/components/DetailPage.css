@@ -1,0 +1,25 @@
+.page_wrapper {
+    display: flex;
+    margin-top: 30px;
+    width: 100%;
+    margin-top: 80px;
+}
+
+.page_container{
+    flex: 1 1 calc(50% - 20px);
+    box-sizing: border-box;
+    background-color: #e0f7fa;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 30px;
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.page_map{
+    width: 50%;
+}

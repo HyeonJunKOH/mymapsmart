@@ -1,31 +1,43 @@
 import { useLocation } from "react-router-dom";
-import FavAlert from "./FavAlert";
-
+import './DetailPage.css';
+import Map from "./Map";
 
 
 function DetailPage(){
     const location = useLocation();
     const item = location.state?.item;
+    // 즐겨찾기 데이터
+    // const [, setFavorites] = useState([]);
 
-    if (!item) {
-        return <div>잘못된 접근입니다.</div>;
-    }
 
-    // 담기버튼을 눌렀을 때 로컬스토리지에 따로 즐겨찾기로 저장하는 함수
-    const addFavorite = (item) => {
-        if (item) {
-            const existingFavorites = JSON.parse(localStorage.getItem("tourFavorites" || "shpFavorites" || "foodFavorites" || "hotelFavorites")) || [];
-            const updatedFavorites = [...existingFavorites, item];
-            localStorage.setItem("tourFavorites" || "shpFavorites" || "foodFavorites" || "hotelFavorites", JSON.stringify(updatedFavorites));
-        }
-    };
+    // 주소 데이터를 가져온다.
+    const address = item.tourspotAddr || item.shppgAddr || item.restrntAddr || item.romsAddr;
+    // 장소 데이터를 가져온다.
+    const name = item.tourspotNm || item.shppgNm || item.restrntNm || item.romsNm;
+    // 홈페이지 URL을 가져온다.
+    const url = item.urlAddr || item.shppgHmpgUrl || item.romsHmpgAddr;
 
     return (
-        <div>
-            <h1>장소명: {item.tourspotNm || item.shppgNm || item.restrntNm || item.romsNm}</h1>
-            <p>주소: {item.tourspotAddr || item.shppgAddr || item.restrntAddr || item.romsAddr}</p>
-            <p>설명: {item.tourspotSumm || item.shppgSumm || item.restrntSumm || item.romsSumm}</p>
-            <FavAlert item={item} onConfirm={addFavorite} />
+        <div className="page_wrapper">
+            <div className="page_container">
+                <h1>장소명: {item.tourspotNm || item.shppgNm || item.restrntNm || item.romsNm}</h1>
+                <p>주소: {item.tourspotAddr || item.shppgAddr || item.restrntAddr || item.romsAddr}</p>
+                <p>설명: {item.tourspotSumm || item.shppgSumm || item.restrntSumm || item.romsSumm}</p>
+                <p>
+                    홈페이지:
+                    {url ? (
+                        <a href={url} target="_blank" rel="noopener noreferrer">
+                            {url}
+                        </a>
+                    ) : (
+                        "정보가 없습니다."
+                    )}
+                </p>
+                <p>번호 : {item.refadNo || item.shppgInqrTel || item.restrntInqrTel || item.romsRefadNo}</p>
+            </div>
+            <div className="page_map">
+                <Map address={address} name={name} />
+            </div>
         </div>
         
     );

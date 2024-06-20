@@ -31,7 +31,7 @@ const FavAlert = ({item, onConfirm, unConfirm}) => {
 FavAlert.propTypes = {
     item: propTypes.object.isRequired,
     onConfirm: propTypes.func.isRequired,
-    unConfirm: propTypes.bool.isRequired
+    unConfirm: propTypes.bool
 }
 
 export default FavAlert;
