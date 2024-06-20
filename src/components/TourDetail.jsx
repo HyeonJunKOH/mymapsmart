@@ -17,6 +17,8 @@ function TourDetail(){
     const [selectedDistrict, setSelectedDistrict] = useState('구전체');
     // 검색기능 스테이트
     const [searchTerm, setSearchTerm] = useState('');
+    // 즐겨찾기 데이터
+    const [, setFavorites] = useState([]);
 
 
     useEffect(()=>{
@@ -49,6 +51,12 @@ function TourDetail(){
         // 아래 3개의 데이터 값이 변경 될때마다 useEffect 발동
     },[searchTerm,selectedDistrict,tourData]);
 
+    // 컴포넌트가 업데이트 될 때마다 즐겨찾기 데이터 업데이트 시키기
+    useEffect(()=>{
+        const existingFavorites = JSON.parse(localStorage.getItem("tourFavorites"))||[];
+        setFavorites(existingFavorites);
+    },[filteredData]);
+
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
@@ -66,6 +74,7 @@ function TourDetail(){
             const existingFavorites = JSON.parse(localStorage.getItem("tourFavorites")) || [];
             const updatedFavorites = [...existingFavorites, item];
             localStorage.setItem("tourFavorites", JSON.stringify(updatedFavorites));
+            setFavorites(updatedFavorites); // 즐겨찾기 상태 업데이트
         }
     };
 
@@ -85,21 +94,25 @@ function TourDetail(){
             />
             <div className="detail_wrapper">
                 {currentItems.length > 0 ? (
-                    currentItems.map((item, index) => (
-                        <div key={index} className="detail_container">
-                            <div className="detail_item">
-                                <div className="text_container">
-                                    <div className="detail_name">장소명 : {item.tourspotNm}</div>
-                                    <div className="detail_address">주소 : {item.tourspotAddr}</div>
-                                    <div className="detail_description">설명 : {item.tourspotSumm}</div>
-                                </div>
-                                <div className="detail_btn">
-                                    <FavAlert item={item} onConfirm={addFavorite}/>
-                                    <button className="detail_view_btn" onClick={()=> detailChange(item)}>상세보기</button>
+                    currentItems.map((item, index) => {
+                        const existingFavorites = JSON.parse(localStorage.getItem("tourFavorites")) || [];
+                        const isAlreadyFavorited = existingFavorites.some(fav => fav.tourspotNm === item.tourspotNm);
+                        return(
+                            <div key={index} className="detail_container">
+                                <div className="detail_item">
+                                    <div className="text_container">
+                                        <div className="detail_name">장소명 : {item.tourspotNm}</div>
+                                        <div className="detail_address">주소 : {item.tourspotAddr}</div>
+                                        <div className="detail_description">설명 : {item.tourspotSumm}</div>
+                                    </div>
+                                    <div className="detail_btn">
+                                        <FavAlert item={item} onConfirm={addFavorite} unConfirm={!isAlreadyFavorited} />
+                                        <button className="detail_view_btn" onClick={() => detailChange(item)}>상세보기</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))
+                        );
+                    })
                 ) : (
                     <div>Loading...</div>
                 )}

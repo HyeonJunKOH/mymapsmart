@@ -175,6 +175,8 @@ function FavoriteDetail() {
         navigate(`/detail`, { state: { item } })
     };
 
+    const hasFavorites = tourFavoriteData.length > 0 || foodFavoriteData.length > 0 || hotelFavoriteData.length > 0 || shpFavoriteData.length > 0 
+
     return (
         <div>
             <FilSearch
@@ -183,7 +185,7 @@ function FavoriteDetail() {
                 setSelectedCategory={setSelectedCategory}
                 showCategoryFilter={true}
             />
-            <AllDelAlert onConfirm={handleAllDeleteChange}/>
+            <AllDelAlert onConfirm={handleAllDeleteChange} hasFavorites={hasFavorites}/>
             <div className="detail_wrapper">
                 {currentFavorites.length > 0 ? (
                     currentFavorites.map((item, index) => (

@@ -2,8 +2,12 @@
 import Swal from "sweetalert2";
 import propTypes from "prop-types";
 
-const FavAlert = ({item, onConfirm}) => {
+const FavAlert = ({item, onConfirm, unConfirm}) => {
     const handleAddFavorite = () => {
+        if(!unConfirm){
+            Swal.fire("이미 추가된 목록 입니다.","","info");
+            return;
+        }
         Swal.fire({
             title: "즐겨찾기에 추가하시겠습니까?",
             showCancelButton: true,
@@ -26,7 +30,8 @@ const FavAlert = ({item, onConfirm}) => {
 
 FavAlert.propTypes = {
     item: propTypes.object.isRequired,
-    onConfirm: propTypes.func.isRequired
+    onConfirm: propTypes.func.isRequired,
+    unConfirm: propTypes.bool.isRequired
 }
 
 export default FavAlert;
