@@ -22,11 +22,15 @@ function TourDetail(){
 
 
     useEffect(()=>{
-        const data = JSON.parse(localStorage.getItem("data"));
-        if (data) {
-            const tourItems = data.slice(0,142)
-            setTourData(tourItems);
-            setFilteredData(tourItems);
+        try {
+            const data = JSON.parse(localStorage.getItem("data"));
+            if (data) {
+                const tourItems = data.slice(0, 142);
+                setTourData(tourItems);
+                setFilteredData(tourItems);
+            }
+        } catch (error) {
+            console.error("Error parsing localStorage data:", error);
         }
     },[]);
 
