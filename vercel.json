@@ -7,6 +7,10 @@
         {
             "source": "/api/:path*/",
             "destination": "https://apis.data.go.kr/:path*/"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
         }
     ]
 }
