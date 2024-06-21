@@ -20,6 +20,19 @@ function TourDetail(){
     // 즐겨찾기 데이터
     const [, setFavorites] = useState([]);
 
+    useEffect(() => {
+        try {
+            const initialData = [
+                { tourspotNm: "Sample Spot 1", tourspotAddr: "Sample Address 1", tourspotSumm: "Sample Summary 1" },
+                { tourspotNm: "Sample Spot 2", tourspotAddr: "Sample Address 2", tourspotSumm: "Sample Summary 2" }
+            ];
+            localStorage.setItem("data", JSON.stringify(initialData));
+            console.log("Initial data set in localStorage:", initialData);
+        } catch (error) {
+            console.error("Error setting initial data in localStorage:", error);
+        }
+    }, []);
+
 
     useEffect(()=>{
         try {
