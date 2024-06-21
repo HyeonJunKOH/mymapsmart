@@ -25,7 +25,7 @@ function FoodDetail() {
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem("data"));
         if (data) {
-            const foodItems = data.slice(154, 275)
+            const foodItems = data.slice(154, 395)
             setFoodData(foodItems);
             setFilteredData(foodItems);
         }
