@@ -1,15 +1,9 @@
-import { useEffect } from "react";
 import PropTypes from "prop-types";
 
 const {Kakao} = window;
 
 
 const KakaoShareButton = ({ title, description, imageUrl}) => {
-    useEffect(() => {
-        if (!window.Kakao.isInitialized()) {
-            window.Kakao.init(import.meta.env.VITE_KAKAO_API_KEY);
-        }
-    }, []);
     const shareKakao = () => {
         const linkUrl = "https://mapsmart.co.kr";
         Kakao.Link.sendDefault({
