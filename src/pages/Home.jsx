@@ -1,5 +1,4 @@
 import Header from "../components/Header";
-import KakaoShareButton from "../components/KakaoShare";
 import Main from "../components/Main";
 
 function Home(){
@@ -8,9 +7,6 @@ function Home(){
         <>
             <Header title={"MapsMart"}/>
             <Main/>
-            <div className="share-button-container">
-                <KakaoShareButton/>
-            </div>
         </>
     )
 }
