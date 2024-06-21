@@ -57,9 +57,13 @@ function TourDetail(){
 
     // 컴포넌트가 업데이트 될 때마다 즐겨찾기 데이터 업데이트 시키기
     useEffect(()=>{
-        const existingFavorites = JSON.parse(localStorage.getItem("tourFavorites"))||[];
-        setFavorites(existingFavorites);
-    },[filteredData]);
+        try {
+            const existingFavorites = JSON.parse(localStorage.getItem("tourFavorites")) || [];
+            setFavorites(existingFavorites);
+        } catch (error) {
+            console.error("Error parsing localStorage favorites:", error);
+        }
+    },[]);
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -75,10 +79,14 @@ function TourDetail(){
     // 담기버튼을 눌렀을 때 로컬스토리지에 따로 즐겨찾기로 저장하는 함수
     const addFavorite = (item) => {
         if (item) {
-            const existingFavorites = JSON.parse(localStorage.getItem("tourFavorites")) || [];
-            const updatedFavorites = [...existingFavorites, item];
-            localStorage.setItem("tourFavorites", JSON.stringify(updatedFavorites));
-            setFavorites(updatedFavorites); // 즐겨찾기 상태 업데이트
+            try {
+                const existingFavorites = JSON.parse(localStorage.getItem("tourFavorites")) || [];
+                const updatedFavorites = [...existingFavorites, item];
+                localStorage.setItem("tourFavorites", JSON.stringify(updatedFavorites));
+                setFavorites(updatedFavorites);
+            } catch (error) {
+                console.error("Error updating localStorage favorites:", error);
+            }
         }
     };
 
