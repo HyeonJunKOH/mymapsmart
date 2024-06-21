@@ -22,7 +22,17 @@ function DetailPage(){
             <div className="page_container">
                 <h1>장소명: {item.tourspotNm || item.shppgNm || item.restrntNm || item.romsNm}</h1>
                 <p>주소: {item.tourspotAddr || item.shppgAddr || item.restrntAddr || item.romsAddr}</p>
-                <p>설명: {item.tourspotSumm || item.shppgSumm || item.restrntSumm || item.romsSumm}</p>
+                <p>설명 : {item.tourspotSumm || item.restrntSumm || item.romsSumm || item.shppgSumm ?
+                    (
+                        <>
+                            {item.tourspotSumm && <span>{item.tourspotSumm}</span>}
+                            {item.restrntSumm && <span>{item.restrntSumm}</span>}
+                            {item.romsSumm && <span>{item.romsSumm}</span>}
+                            {item.shppgSumm && <span>{item.shppgSumm}</span>}
+                        </>
+                    ) : (
+                        <span>정보가 없습니다.</span>
+                    )}</p>
                 <p>
                     홈페이지:
                     {url ? (

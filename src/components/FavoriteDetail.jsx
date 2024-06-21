@@ -194,7 +194,19 @@ function FavoriteDetail() {
                                 <div className="text_container">
                                     <div className="detail_name">장소명 : {item.tourspotNm || item.restrntNm || item.romsNm || item.shppgNm}</div>
                                     <div className="detail_address">주소 : {item.tourspotAddr || item.restrntAddr || item.romsAddr || item.shppgAddr}</div>
-                                    <div className="detail_description">설명 : {item.tourspotSumm || item.restrntSumm || item.romsSumm || item.shppgSumm}</div>
+                                    <div className="detail_description">
+                                        설명 : {item.tourspotSumm || item.restrntSumm || item.romsSumm || item.shppgSumm ?
+                                            (
+                                                <>
+                                                    {item.tourspotSumm && <span>{item.tourspotSumm}</span>}
+                                                    {item.restrntSumm && <span>{item.restrntSumm}</span>}
+                                                    {item.romsSumm && <span>{item.romsSumm}</span>}
+                                                    {item.shppgSumm && <span>{item.shppgSumm}</span>}
+                                                </>
+                                            ) : (
+                                                <span>정보가 없습니다.</span>
+                                            )};
+                                    </div>
                                 </div>
                                 <div className="detail_btn">
                                     <DelAlert item={item} onConfirm={() => handleDeleteChange(item, Object.prototype.hasOwnProperty.call(item, 'tourspotNm') ? 'tour' : Object.prototype.hasOwnProperty.call(item, 'shppgNm') ? 'shppg' : Object.prototype.hasOwnProperty.call(item, 'restrntNm') ? 'rest' : 'roms')} />
