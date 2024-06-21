@@ -29,6 +29,8 @@ function TourDetail(){
                 setTourData(tourItems);
                 setFilteredData(tourItems);
                 console.log("Data loaded from localStorage:", tourItems);
+            } else {
+                console.log("No data found in localStorage");
             }
         } catch (error) {
             console.error("Error parsing localStorage data:", error);
