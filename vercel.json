@@ -1,21 +1,12 @@
 {
-    "headers": [
+    "rewrites": [
         {
-            "source": "/api/(.*)",
-            "headers": [
-                {
-                    "key": "Access-Control-Allow-Origin",
-                    "value": "*"
-                },
-                {
-                    "key": "Access-Control-Allow-Methods",
-                    "value": "GET, POST, PUT, DELETE"
-                },
-                {
-                    "key": "Access-Control-Allow-Headers",
-                    "value": "X-Requested-With, Content-Type, Authorization"
-                }
-            ]
+            "source": "/api/:path*",
+            "destination": "https://apis.data.go.kr/:path*"
+        },
+        {
+            "source": "/api/:path*/",
+            "destination": "https://apis.data.go.kr/:path*/"
         }
     ]
 }
