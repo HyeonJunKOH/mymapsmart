@@ -2,7 +2,7 @@
 
 const KakaoShareButton = () => {
     // @ts-ignore
-    window.Kakao.Link.createCustomButton({
+    window.Kakao.Share.createCustomButton({
         container: "#kakao-link-btn",
         templateId: 109227,
     });
