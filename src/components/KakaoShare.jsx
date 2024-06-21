@@ -3,30 +3,13 @@ import PropTypes from "prop-types";
 const {Kakao} = window;
 
 
-const KakaoShareButton = ({ title, description, imageUrl}) => {
+const KakaoShareButton = () => {
     const shareKakao = () => {
-        const linkUrl = "https://mapsmart.co.kr";
-        Kakao.Link.sendDefault({
-            objectType: 'feed',
-            content: {
-                title: title,
-                description: description,
-                imageUrl: imageUrl,
-                link: {
-                    webUrl: linkUrl
-                }
-            },
-            buttons: [
-                {
-                    title: '웹으로 보기',
-                    link: {
-                        webUrl: linkUrl
-                    }
-                }
-            ]
-        });
+        Kakao.Share.createCustomButton({
+            container: '#kakaotalk-sharing-btn',
+            templateId: 109227,
+        })
     };
-
     return (
         <button onClick={shareKakao}>카카오톡 공유하기</button>
     );
