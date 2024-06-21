@@ -35,8 +35,10 @@ function App() {
           response3.data.response.body.items,
           response4.data.response.body.items
         );
+        console.log("Merged Data:", mergeData);
         
         localStorage.setItem("data", JSON.stringify(mergeData));
+        console.log("Data stored in localStorage");
       }catch(error){
         console.error(error);
       }
