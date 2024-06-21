@@ -18,9 +18,9 @@ const KakaoShareButton = () => {
 
         const createKakaoButton = () => {
             initializeKakao().then(() => {
-                window.Kakao.Link.createDefaultButton({
+                window.Kakao.Share.createCustomButton({
                     container: '#kakaotalk-sharing-btn',
-                    objectType: 'feed',
+                    templateId: 109227,
                     content: {
                         title: '가나다',
                         description: '간디'
