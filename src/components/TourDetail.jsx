@@ -28,6 +28,7 @@ function TourDetail(){
                 const tourItems = data.slice(0, 142);
                 setTourData(tourItems);
                 setFilteredData(tourItems);
+                console.log("Data loaded from localStorage:", tourItems);
             }
         } catch (error) {
             console.error("Error parsing localStorage data:", error);
