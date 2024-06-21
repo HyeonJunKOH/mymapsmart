@@ -23,7 +23,7 @@ function HotelDetail() {
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem("data"));
         if (data) {
-            const hotelItems = data.slice(277, 557)
+            const hotelItems = data.slice(396, 557)
             setHotelData(hotelItems);
             setFilteredData(hotelItems);
         }
