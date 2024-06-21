@@ -22,12 +22,20 @@ function App() {
         const response3 = await axios.get(RestUrl);
         const response4 = await axios.get(RomUrl);
 
-        const mergeData = [
-          ...response1.data.response.body.items,
-          ...response2.data.response.body.items,
-          ...response3.data.response.body.items,
-          ...response4.data.response.body.items
-        ];
+        // const mergeData = [
+        //   ...response1.data.response.body.items,
+        //   ...response2.data.response.body.items,
+        //   ...response3.data.response.body.items,
+        //   ...response4.data.response.body.items
+        // ];
+
+        const mergeData = response1.data.response.body.items.concat(
+          response2.data.response.body.items,
+          response3.data.response.body.items,
+          response3.data.response.body.items,
+          response4.data.response.body.items
+        );
+        
         localStorage.setItem("data", JSON.stringify(mergeData));
       }catch(error){
         console.error(error);
