@@ -1,12 +1,7 @@
 import { useEffect } from "react";
 
-
-
 const KakaoShareButton = () => {
-
     useEffect(() => {
-        const Kakao = window;
-        // Kakao SDK 초기화 및 앱 키 설정
         const initializeKakao = async () => {
             if (!window.Kakao.isInitialized()) {
                 await new Promise((resolve) => {
@@ -21,22 +16,32 @@ const KakaoShareButton = () => {
             }
         };
 
-        initializeKakao();
-        // Kakao SDK로부터 커스텀 버튼 생성
-        Kakao.Share.createCustomButton({
-            container: '#kakaotalk-sharing-btn',
-            templateId: 109227,
-            templateArgs:{
-                title: '가나다',
-                description: '간디'
-            }
-        });
+        const createKakaoButton = () => {
+            initializeKakao().then(() => {
+                window.Kakao.Link.createDefaultButton({
+                    container: '#kakaotalk-sharing-btn',
+                    objectType: 'feed',
+                    content: {
+                        title: '가나다',
+                        description: '간디'
+                    },
+                    buttons: [
+                        {
+                            title: '웹으로 보기',
+                            link: {
+                                webUrl: 'https://example.com'
+                            }
+                        }
+                    ]
+                });
+            });
+        };
 
-        // 컴포넌트 언마운트 시 리소스 정리
+        createKakaoButton();
+
         return () => {
-            // 커스텀 버튼 제거
             const kakaoButton = document.getElementById('kakaotalk-sharing-btn');
-            kakaoButton.innerHTML = ''; // 버튼 요소 비우기
+            kakaoButton.innerHTML = '';
         };
     }, []);
 
