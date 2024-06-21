@@ -6,11 +6,22 @@ const KakaoShareButton = () => {
 
     useEffect(() => {
         const Kakao = window;
-        // Kakao SDK 초기화
-        if (!window.Kakao.isInitialized()) {
-            window.Kakao.init(import.meta.env.VITE_KAKAO_API_KEY); // 사용하려는 앱의 JavaScript 키 입력
-        }
+        // Kakao SDK 초기화 및 앱 키 설정
+        const initializeKakao = async () => {
+            if (!window.Kakao.isInitialized()) {
+                await new Promise((resolve) => {
+                    const script = document.createElement('script');
+                    script.src = 'https://t1.kakaocdn.net/kakao/js/sdk/kakao.js';
+                    script.onload = () => {
+                        window.Kakao.init(import.meta.env.VITE_KAKAO_API_KEY);
+                        resolve();
+                    };
+                    document.head.appendChild(script);
+                });
+            }
+        };
 
+        initializeKakao();
         // Kakao SDK로부터 커스텀 버튼 생성
         Kakao.Share.createCustomButton({
             container: '#kakaotalk-sharing-btn',
