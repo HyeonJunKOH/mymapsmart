@@ -24,15 +24,7 @@ const KakaoShareButton = () => {
                     content: {
                         title: '가나다',
                         description: '간디'
-                    },
-                    buttons: [
-                        {
-                            title: '웹으로 보기',
-                            link: {
-                                webUrl: 'https://example.com'
-                            }
-                        }
-                    ]
+                    }
                 });
             });
         };
